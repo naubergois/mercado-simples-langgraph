@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mercado Simples — boas escolhas, todos os dias</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%23ffe45c'/%3E%3Ctext x='8' y='29' font-size='28'%3Em%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header>
+    <div class="header-main container">
+      <a class="brand" href="/" aria-label="Mercado Simples, início"><span class="brand-icon">m.</span><span>mercado<strong>simples</strong></span></a>
+      <label class="search"><span aria-hidden="true">⌕</span><input id="busca" type="search" placeholder="O que você está procurando?" aria-label="Buscar produtos"><kbd>Buscar</kbd></label>
+      <button id="abrir-pedidos" class="header-link">Meus pedidos <span aria-hidden="true">↗</span></button>
+    </div>
+    <nav class="container"><span>Um pouco de tudo. Muito mais simples.</span><a href="#catalogo">Explorar produtos</a><a href="#atendimento">Fale com a gente</a></nav>
+  </header>
+  <main class="container">
+    <section class="hero">
+      <div><span class="eyebrow">ESCOLHAS QUE COMBINAM COM VOCÊ</span><h1>Pequenas descobertas.<br>Novas possibilidades.</h1><p>Para sua casa, sua rotina e seu próximo passo.<br>Encontre o que faz sentido para você.</p><a class="button dark" href="#catalogo">Explore a coleção <span>↗</span></a></div>
+      <div class="hero-art" aria-hidden="true"><div class="orbit"></div><span class="art-label">O ESSENCIAL,<br>DO SEU JEITO.</span><svg viewBox="0 0 300 260"><ellipse cx="162" cy="227" rx="86" ry="14" fill="#b4ab8e" opacity=".25"/><g transform="rotate(-15 150 130)"><path d="M76 143V108a74 74 0 0 1 148 0v35" fill="none" stroke="#293c37" stroke-width="25"/><path d="M76 109a74 74 0 0 1 148 0" fill="none" stroke="#57776a" stroke-width="12"/><rect x="52" y="118" width="51" height="88" rx="23" fill="#314a40"/><rect x="197" y="118" width="51" height="88" rx="23" fill="#314a40"/><rect x="79" y="125" width="25" height="74" rx="12" fill="#1f302b"/><rect x="195" y="125" width="25" height="74" rx="12" fill="#1f302b"/></g></svg><span class="art-sticker">Boas<br>descobertas ✦</span></div>
+    </section>
+    <div class="benefits"><span><b>↗</b> Produtos para o seu dia a dia</span><span><b>◇</b> Compra simples, em poucos passos</span><span><b>☏</b> Atendimento ao seu lado</span></div>
+    <div class="demo-note"><span class="dot"></span> Loja de demonstração · compras simuladas, sem cobrança ou entrega. Use dados fictícios.</div>
+    <section id="catalogo">
+      <div class="section-title"><div><span class="eyebrow">ENCONTRE SEU PRÓXIMO FAVORITO</span><h2>Vale a pena descobrir</h2></div><span id="contagem"></span></div>
+      <div class="filters" role="group" aria-label="Filtrar categoria"><button class="active" aria-pressed="true" data-category="Todos">Todos os produtos</button><button aria-pressed="false" data-category="Eletrônicos">Eletrônicos</button><button aria-pressed="false" data-category="Casa">Casa</button><button aria-pressed="false" data-category="Moda">Moda</button></div>
+      <div id="produtos" class="grid" aria-live="polite"><p>Carregando produtos…</p></div>
+      <p id="erro-catalogo" role="alert"></p>
+    </section>
+    <section id="atendimento" class="support">
+      <div class="support-intro"><span class="eyebrow">PODE CHEGAR. A GENTE AJUDA.</span><h2>Uma conversa.<br>Boas escolhas.</h2><p>Precisa encontrar um produto ou consultar uma compra? Escolha o assunto e fale com nosso atendimento.</p><span id="modo-chat" class="badge">Carregando atendimento</span><p class="privacy">Não envie dados pessoais no chat.</p></div>
+      <div class="chat"><div class="chat-heading"><span class="avatar">m.</span><div><strong>Assistente Mercado Simples</strong><small>Vendas e suporte</small></div><label class="sr-only" for="assunto">Assunto do atendimento</label><select id="assunto"><option value="vendas">Vendas</option><option value="suporte">Suporte</option></select></div><div id="mensagens" class="messages" role="log" aria-live="polite"><div class="bubble assistant">Olá! Vamos encontrar algo para você? Me conte o que está procurando, ou selecione Suporte para consultar seus pedidos.</div></div><form id="chat-form"><label class="sr-only" for="mensagem">Sua mensagem</label><input id="mensagem" placeholder="Escreva sua mensagem…" maxlength="1000" required><button type="submit" aria-label="Enviar mensagem">↑</button></form><p id="erro-chat" class="form-error" role="alert"></p></div>
+    </section>
+  </main>
+  <footer class="container"><span class="brand-footer">mercado<strong>simples</strong></span><span>Um projeto para aprender. Um jeito simples de comprar.</span><span>Protótipo independente · 2026</span></footer>
+  <dialog id="compra-dialog"><button class="close" id="fechar-compra" aria-label="Fechar compra">×</button><span class="eyebrow">SUA PRÓXIMA DESCOBERTA</span><h2 id="compra-titulo">Comprar produto</h2><p>Preencha com dados fictícios para simular sua compra.</p><form id="compra-form"><label>Nome<input name="nome" placeholder="Maria Exemplo" minlength="2" maxlength="80" required></label><label>E-mail<input name="email" type="email" placeholder="maria@example.com" required></label><div class="form-row"><label>CEP<input name="cep" placeholder="60000-000" pattern="[0-9]{5}-[0-9]{3}" maxlength="9" required></label><label>Quantidade<input name="quantidade" type="number" value="1" min="1" max="10" step="1" required></label></div><div class="total"><span>Total · frete simulado grátis</span><strong id="compra-total"></strong></div><label class="check"><input name="confirmar" type="checkbox" required> Confirmo esta compra simulada, sem cobrança.</label><p id="erro-compra" class="form-error" role="alert"></p><button class="button dark" type="submit">Confirmar compra simulada ↗</button></form></dialog>
+  <dialog id="pedidos-dialog"><button class="close" id="fechar-pedidos" aria-label="Fechar pedidos">×</button><span class="eyebrow">SUAS ESCOLHAS</span><h2>Meus pedidos</h2><p>Pedidos deste navegador, nesta sessão.</p><div id="pedidos" aria-live="polite"></div></dialog>
+</body>
+</html>
